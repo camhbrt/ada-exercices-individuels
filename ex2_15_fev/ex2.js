@@ -6,79 +6,61 @@
 
 
 //demande au joueur1 un nombre entre 0 et 50
+let count = 0; 
+
+
 function chooseNumber() {
     let answer = parseInt(prompt("Choisis un nombre entre 0 et 50 à faire deviner à joueur 2"));
     if (0 < answer && answer <= 50){
         alert("Joueur 2 va essayer de deviner ton nombre");
-        console.log(answer);
         return answer;
     }
     else {
         alert("Tu n'as pas écouté la consigne, toi !");
-        console.log("wrong");
+        console.log("wrong" + answer);
         return chooseNumber();
     }
 
 }
 let player1 = chooseNumber();
-console.log(player1)
+console.log("right answer is " + player1);
 
 
-let player2 = document.getElementById("guessPlayer2");
-console.log(player2)
-
-
-//demande au joueur2 de trouver le nombre
-function askNumber() {
-    let guess = parseInt(prompt("Quel est le nombre de joueur 1 ?"));
-    if (0 < guess && guess <= 50) {
-        return guess;
-    } 
-    else {
-        alert("Propose un nombre entre 0 et 50");
-        return askNumber();
-    }
+//récuper l'input du player2
+function getValue(){
+    let guessPlayer2 = document.getElementById("guessPlayer2").value;
+    console.log("player2 guessed " + guessPlayer2);
+return parseInt(guessPlayer2);
 }
 
+
 // vérifie si le nombre est bon
-function didIWin(number, answer) {
-    if (number === answer) {
-        console.log("bravo")
+function didIWin(guess, answer) {
+    if (guess === answer) {
         return true;   
     }    
     else {
-        console.log("retente")
         return false;     
     }  
 }
 
 
-// Arrête le jeu si deviné, continue si non
+//Dit si on a gagné ou pas
 function gamePlay() {
-    
-    let player2 = askNumber();
+    let player2 = getValue();
     let trueOrFalse = didIWin(player2, player1);
 
-    console.log(player2); /*affiche undefined */
+    console.log(player2);
     console.log(player1);
     console.log (trueOrFalse);
 
-
-
     if (trueOrFalse === true) {
-        alert("Bravo, tu as trouvé !");  
-    } 
-    else if (player2 > player1) {
-        alert("plus petit");
-        return gamePlay();
-        console.log(player2);  
+        document.getElementById("bravo").innerHTML = "Bravooooooo !" 
     } 
     else {
-        alert("plus grand");
-        return gamePlay();
-        console.log(player2);   
-    }
-
-    
+        count++;
+        document.getElementById("prout").innerHTML = "tu as fait " + count + " essais";
+        
+    }   
 }
-gamePlay()
+// gamePlay() --> la fonction est déjà appelée dans le fichier HTML

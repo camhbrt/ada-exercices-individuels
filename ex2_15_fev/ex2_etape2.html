@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--ETAPE 2 :
+    Pour le moment nous allons considérer que le nombre à deviner est 22.
+
+    Écrire une fonction qui prend en paramètre givenNumber et qui se nommera didIWin. Si le nombre est plus petit que 22, on affichera à l’utilisateur “Plus grand”. Si le nombre est plus quand que 22 on affichera à l’utilisateur “Plus petit”. Si le nombre est 22 on affichera “Bravo ! Vous avez deviné le nombre”. L’ordre dans lequel vous ferez vos conditions est importante, le but est d’executer le moins de code possible. Demandez-vous ce qu’il faut vérifier en premier.
+
+    Attention : le prompt() bloque l’exécution de la page de la page et stop l’affichage du rendu. Pour afficher des informations à la suite d’un prompt(), utilisez alert().
+
+    Créer une fonction gamePlay qui gérera vos appels de fonctions et la transmission de votre variable d’une fonction à une autre. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+function didIWin(i){
+    if (i == 22) {
+       alert("Bravo ! Vous avez deviné le nombre") 
+    } 
+    else if  (i > 22) {
+        alert("Plus petit")
+        
+    }
+    else {
+        alert("Plus grand")
+
+    }
+
+
+}
+
+
+function gamePlay() {
+    let givenNumber = prompt("Choisis un nombre");
+    console.log(givenNumber);
+    didIWin(givenNumber);
+    
+}
+gamePlay()
+
+    </script>
+    
+</body>
+</html>

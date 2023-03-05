@@ -1,0 +1,67 @@
+<!-- Etape 4 :
+Maintenant on va considérer que l’on a pas un seul joueur mais 2.
+
+Créer une fonction qui demande au joueur 1 de fournir un nombre à deviner compris entre 0 et 50 tant qu’il ne respecte pas ce range.
+La fonction didIWin doit prendre désormais un autre paramètre, le nombre à deviner.
+Reprenez la logique 1, 2 et 3 pour gérer la partie et lui indiquer s’il doit continuer à jouer ou s’il a gagné. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function player1() {
+            const answer = parseInt(window.prompt("Choisis un nombre entre 0 et 50 à faire devier au joueur 2"));
+
+            while (answer == NaN || answer<0 || answer>50) {
+                return player1();
+                
+            }
+            return answer ;
+        }
+        let answer = player1();
+
+        function askNumber (){
+            const guess = window.prompt("Choisis un nombre");
+            return guess;
+        }
+
+        function didIWin(answer, guess){
+            if (guess == answer) {
+               alert("Bravo ! Vous avez deviné le nombre");
+               return true; 
+            } 
+            else if  (guess > answer) {
+                alert("Plus petit");
+                return false;  
+            }
+            else {
+                alert("Plus grand");
+                return false;
+            }
+        }
+        
+        function gamePlay() {
+            let guess = askNumber();
+            let trueOrFalse = didIWin(answer, guess);
+
+            while (trueOrFalse == false) {
+                guess = askNumber();
+                trueOrFalse = didIWin(guess);  
+            }
+            return alert("bravo !")  
+        }
+        gamePlay()
+
+
+            </script>
+    
+</body>
+</html>

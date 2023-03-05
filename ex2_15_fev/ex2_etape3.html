@@ -1,0 +1,54 @@
+<!-- Etape 3 : 
+
+Désormais la fonction didIWin devra retourner true si l’utilisateur a trouvé le chiffre, false sinon.
+
+Dans la fonction gamePlay, si didIWin a retourné true, on arrete le jeu. En revanche, si elle a retourné false, on redemande un chiffre à l’utilisateur. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function askNumber (){
+            const guess = window.prompt("Choisis un nombre");
+            return guess;
+        }
+
+        function didIWin(i){
+            if (i == 22) {
+               alert("Bravo ! Vous avez deviné le nombre");
+               return true; 
+            } 
+            else if  (i > 22) {
+                alert("Plus petit");
+                return false;  
+            }
+            else {
+                alert("Plus grand");
+                return false;
+            }
+        }
+        
+        function gamePlay() {
+            
+            let guess = askNumber();
+            let trueOrFalse = didIWin(guess);
+
+            while (trueOrFalse == false) {
+                guess = askNumber();
+                trueOrFalse = didIWin(guess);  
+            }  
+        }
+        gamePlay()
+
+
+            </script>
+    
+</body>
+</html>
