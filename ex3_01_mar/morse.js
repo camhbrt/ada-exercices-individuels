@@ -55,7 +55,6 @@ console.log(`Etape 2 : la lettre "f" en morse est `+codedLetter);
 // Ajouter une nouvelle fonction encode qui prend en paramètre du texte et qui va utiliser la fonction de l’étape 1, pour chaque caractère, appliquer la fonction de l’étape 2 et ainsi récupérer son équivalent morse.
 // Attention: la table de correspondance ne contient que des caractères majuscules.
 
-
 console.log("Etape 3 :")
 function encode(text){
 	//text se transforme en tableau avec chaque lettre séparée => ['T', 'E', 'X', 'T']
@@ -73,10 +72,71 @@ function encode(text){
 		}
 		morseArray.push(morse);
 	}
-
 	return morseArray
 };
+console.log(encode("cami h"));
 
 
 
-console.log(encode("cami h"))
+// Étape 4
+// Vous trouverez en annexe 2 le dictionnaire de correspondance inversé. Ajoutez-le à votre code, et appliquez les procédés similaire à ce qui a été fait pour le encode pour créer une fonction decode. Dans cet exercice, on admettra que les lettres en morse sont séparées par un espace, et les mots par des “/” (slash).
+// Ainsi, créer la fonction getMorseCharacterList ainsi que translateMorseCharacter.
+
+const morseToLatin = {
+	'-': "T",
+	'--': "M",
+	'---': "O",
+	'--.': "G",
+	'--.-': "Q",
+	'--..': "Z",
+	'-.': "N",
+	'-.-': "K",
+	'-.--': "Y",
+	'-.-.': "C",
+	'-..': "D",
+	'-..-': "X",
+	'-...': "B",
+	'.': "E",
+	'.-': "A",
+	'.--': "W",
+	'.---': "J",
+	'.--.': "P",
+	'.-.': "R",
+	'.-..': "L",
+	'..': "I",
+	'..-': "U",
+	'..-.': "F",
+	'...': "S",
+	'...-': "V",
+	'....': "H"
+}
+
+function getMorseCharacterList(string) {
+	return string.split(" ")
+}
+
+function translateMorseCharacter(letter) {
+    return morseToLatin[letter]
+};
+
+function decode(text) {
+	
+	let morseArray = getMorseCharacterList(text);
+	console.log(morseArray);
+	let latinArray=[] //déclare tableau vide à remplir
+
+	//chaque lettre du tableau doit être traduite en morse
+	for (i= 0; i<morseArray.length; i++) {
+		
+		if (morseArray[i] == "/") {
+			latin = " "
+		}
+		else {
+			latin = translateMorseCharacter(morseArray[i]);
+		}
+		latinArray.push(latin);
+	}
+	return latinArray
+}
+let reponse = decode("... . .. / -- ..")
+console.log(reponse)
