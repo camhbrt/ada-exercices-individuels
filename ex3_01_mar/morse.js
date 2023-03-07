@@ -5,7 +5,8 @@
 function getLatinCharacterList(string) { 
 	return string.split("")
 };
-let latinArray = getLatinCharacterList("S, OS");
+let latinArray = getLatinCharacterList("SOS");
+console.log("etape 1 = ")
 console.log(latinArray);
 
 //Etape 2
@@ -47,7 +48,7 @@ function translateLatinCharacter(letter){
     return latinToMorse[maj]
 };
 let codedLetter = translateLatinCharacter("f");
-console.log(`la lettre "f" en morse est `+codedLetter);
+console.log(`Etape 2 : la lettre "f" en morse est `+codedLetter);
 
 
 // Étape 3
@@ -55,7 +56,7 @@ console.log(`la lettre "f" en morse est `+codedLetter);
 // Attention: la table de correspondance ne contient que des caractères majuscules.
 
 
-
+console.log("Etape 3 :")
 function encode(text){
 	//text se transforme en tableau avec chaque lettre séparée => ['T', 'E', 'X', 'T']
 	let latinArray = getLatinCharacterList(text);
@@ -64,11 +65,18 @@ function encode(text){
 
 	//chaque lettre du tableau doit être traduite en morse
 	for (i= 0; i<latinArray.length; i++) {
-		morse = translateLatinCharacter(latinArray[i]);
+		if (latinArray[i] != " ") {
+			morse = translateLatinCharacter(latinArray[i]);
+		}
+		else {
+			morse = " "
+		}
 		morseArray.push(morse);
 	}
 
 	return morseArray
 };
 
-console.log(encode("camille"))
+
+
+console.log(encode("cami h"))
