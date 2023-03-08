@@ -34,7 +34,7 @@ function sum2(array) {
         console.log(sumEtape2);
         return sumEtape2;
     } else {
-        console.log(sumEtape2);
+       // console.log(sumEtape2);
         sumEtape2 += array[index++];
         return sum2(array);
     }
@@ -56,10 +56,32 @@ function factorial(num) {
         return factorialNumber
     } else {
         factorialNumber *= n++;
-        console.log(factorialNumber);
+       // console.log(factorialNumber);
         return factorial(num)
         
     }
     
 }
 factorial(7)
+
+
+// Étape 4
+// En mathématiques, la suite de Fibonacci est une suite de nombres entiers dont chaque terme successif représente la somme des deux termes précédents, et qui commence par 0 et 1. Ainsi, les dix premiers termes qui la composent sont 0, 1, 1 (0+1), 2 (1+1), 3 (1+2), 5 (2+3), 8 (3+5), 13 (5+8), 21 (8+13) et 34 (13+21).
+
+// Écrire une fonction fibonacci qui prend un entier x en paramètre et résoud la suite de Fibonacci.
+
+
+let f=2;
+let fiboSuite=[0,1,1]
+
+function fibonacci(array) {
+
+    while (f<30) {
+        fiboSuite[f] = fiboSuite[f-1]+fiboSuite[f-2];
+        f++;
+        fibonacci();
+    }
+    return fiboSuite
+}
+fibonacci(fiboSuite)
+console.log(fiboSuite)
