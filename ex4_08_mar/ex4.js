@@ -34,10 +34,32 @@ function sum2(array) {
         console.log(sumEtape2);
         return sumEtape2;
     } else {
-        sumEtape2 += array[index];
-        index++;
+        console.log(sumEtape2);
+        sumEtape2 += array[index++];
         return sum2(array);
     }
 }
 sum2(piece)
 
+
+// Étape 3
+// On appelle factoriel le produit des entiers inférieurs ou égaux à un nombre donné. Exemple : factoriel de 3 = 1x2x3 = 6
+// Écrire une fonction factorial qui prend un entier en paramètre et calcule son factoriel récursivement.
+
+
+let factorialNumber=1;
+let n=1;
+
+function factorial(num) {
+    if (n==num+1) {
+        console.log(factorialNumber);
+        return factorialNumber
+    } else {
+        factorialNumber *= n++;
+        console.log(factorialNumber);
+        return factorial(num)
+        
+    }
+    
+}
+factorial(7)
