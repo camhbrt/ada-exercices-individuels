@@ -29,7 +29,6 @@ Ecrire qui la fonction sum2, qui retourne le même résultat que sum1 mais en ut
 
 Étape 3
 On appelle factoriel le produit des entiers inférieurs ou égaux à un nombre donné. Exemple : factoriel de 3 = 1x2x3 = 6
-
 Écrire une fonction factorial qui prend un entier en paramètre et calcule son factoriel récursivement.
 
 Étape 4
