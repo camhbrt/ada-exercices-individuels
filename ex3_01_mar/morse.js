@@ -6,7 +6,6 @@ function getLatinCharacterList(string) {
 	return string.split("")
 };
 let latinArray = getLatinCharacterList("SOS");
-console.log("etape 1 = ")
 console.log(latinArray);
 
 //Etape 2
@@ -47,19 +46,19 @@ function translateLatinCharacter(letter){
 	let maj = letter.toUpperCase();
     return latinToMorse[maj]
 };
-let codedLetter = translateLatinCharacter("f");
-console.log(`Etape 2 : la lettre "f" en morse est `+codedLetter);
+let codedLetter = translateLatinCharacter("s");
+console.log(`La lettre "s" en morse est `+codedLetter);
 
 
 // Étape 3
 // Ajouter une nouvelle fonction encode qui prend en paramètre du texte et qui va utiliser la fonction de l’étape 1, pour chaque caractère, appliquer la fonction de l’étape 2 et ainsi récupérer son équivalent morse.
 // Attention: la table de correspondance ne contient que des caractères majuscules.
 
-console.log("Etape 3 :")
+
 function encode(text){
 	//text se transforme en tableau avec chaque lettre séparée => ['T', 'E', 'X', 'T']
 	let latinArray = getLatinCharacterList(text);
-	console.log(latinArray);
+	//console.log(latinArray);
 	let morseArray=[] //déclare tableau vide à remplir
 
 	//chaque lettre du tableau doit être traduite en morse
@@ -70,11 +69,11 @@ function encode(text){
 		else {
 			morse = " "
 		}
-		morseArray.push(morse);
+		morseArray.push(morse); //puis on push les lettres traduites dans un nouveau tableau
 	}
 	return morseArray
 };
-console.log(encode("cami h"));
+console.log(latinArray + " = " +encode("sos"));
 
 
 
@@ -121,13 +120,12 @@ function translateMorseCharacter(letter) {
 
 function decode(text) {
 	
-	let morseArray = getMorseCharacterList(text);
-	console.log(morseArray);
+	let morseArray = getMorseCharacterList(text); //transforme la string en tableau
+	//console.log(morseArray);
 	let latinArray=[] //déclare tableau vide à remplir
 
 	//chaque lettre du tableau doit être traduite en morse
 	for (i= 0; i<morseArray.length; i++) {
-		
 		if (morseArray[i] == "/") {
 			latin = " "
 		}
@@ -138,5 +136,40 @@ function decode(text) {
 	}
 	return latinArray
 }
-let reponse = decode("... . .. / -- ..")
+let reponse = decode("... --- ... / -- ..")
 console.log(reponse)
+
+// Étape 5
+// Pour finir cet exercice, utilisez des champs de saisie input en HTML et des boutons pour traduire du texte et du morse dans un sens ou dans l’autre.
+
+function getInput(){
+	let textInput = document.getElementById("input").value;
+	console.log("you wrote "+ textInput)
+	return textInput
+}
+//let encodedString = getInput()
+//console.log(encodedString)
+
+function translateLtoM(){
+	let encodedString = getInput();
+	let answer = encode(encodedString);
+	document.getElementById("codeAnswer").innerHTML = answer 
+}
+function translateMtoL(){
+	let encodedString = getInput();
+	let answer = decode(encodedString);
+	document.getElementById("codeAnswer").innerHTML = answer 
+}
+
+
+
+
+//Dans le code html :
+
+//<input name="input" type="text" id="input"> truc à traduire
+
+//<button type="button" name="LtoM" onclick="encode()">Latin to Morse</button> 
+
+//<button type="button" name="MtoL" onclick="decode()">Morse to Latin</button>
+
+// <em id="codeAnswer"></em> Affiche la traduction

@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="morse.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="morse.css"> <!-- style CSS -->
+    <title>Morse code</title> <!-- titre dans l'onglet -->
 </head>
 <body>
-    <script src="morse.js"></script>
+    <h1>Morse code translator</h1> <!-- titre de la page -->
+    <img src="./walrus.jpg"> <!-- image de morse -->
+    <p>
+        <input name="input" type="text" id="input"> <!-- input pour écrire le truc à traduire-->
+        <br/>
+        <br/>
+        <button type="button" name="LtoM" onclick="translateLtoM()">Latin to Morse</button> <!-- bouton qui traduit en Morse -->
+        <button type="button" name="MtoL" onclick="translateMtoL()">Morse to Latin</button> <!-- bouton qui traduit en Latin -->
+        <br/>
+        <br/>
+        <em id="codeAnswer"></em> <!-- Affiche la traduction-->
+
+    </p>
+    <script src="morse.js"></script> <!-- code JS lié à la page -->
 </body>
 </html>
