@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ex2.css">
+    <link rel="stylesheet" href="ex2.css"> 
     <title>Guess a number</title>
 </head>
 
@@ -12,20 +12,20 @@
 <body>
     <h1>ada tech school</h1>
     <h2>Guess a number</h2> 
-    <div class="cadre" id="bravo">
-         <p>Trouve le nombre choisi par joueur 1 : 
-         </br>
-         </br>
+    <div class="cadre" id="bravo">                                     <!-- id permet de réutiliser dans JS -->   
+         <p>Trouve le nombre choisi par joueur 1 :                     <!-- class c'est pour CSS -->  
+         <br/>
+         <br/>
              0 &lt
-             <input name="reponse" type="text" size="1" id="guessPlayer2" />
+             <input name="reponse" type="text" size="1" id="guessPlayer2" /> <!-- input qui prend la valeur JS l.31 -->  
              &lt 50
-             <button type="button" onclick="gamePlay()" >ok</button>
-            </br>
-            </br>
-            <em id="prout"></em> 
+             <button type="button" onclick="gamePlay()" >ok</button> <!-- quand on clique, ça lance le gameplay -->  
+             <br/>
+             <br/>
+            <em id="prout"></em>  <!-- nombre d'essais JS l.62  -->  
 
          </p>
     </div>
-    <script src="ex2.js"></script>
+    <script src="ex2.js"></script> <!-- linked to JS file -->  
 </body>
 </html>
